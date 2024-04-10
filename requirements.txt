@@ -1,0 +1,10 @@
+auto-py-to-exe==2.43.3
+cryptography==42.0.5
+customtkinter==5.2.2
+pillow==10.2.0
+pyinstaller==6.5.0
+pyotp==2.9.0
+pyperclip==1.8.2
+python-dotenv==1.0.1
+qrcode==7.4.2
+sv-ttk==2.6.0
