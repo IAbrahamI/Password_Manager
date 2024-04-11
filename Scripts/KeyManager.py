@@ -10,8 +10,8 @@ class KeyManager:
         # Get the current directory
         self.current_directory = os.path.dirname(__file__)
         # Get the path to the files relative to the current directory
-        self.env_path = os.path.join(self.current_directory, '..', '_internal', '.env')
-        self.qrcode_path = os.path.join(self.current_directory, '..', '_internal', 'otp_auth.png')
+        self.env_path = os.path.join(self.current_directory, '..', 'Secrets', '.env')
+        self.qrcode_path = os.path.join(self.current_directory, '..', 'Secrets', 'otp_auth.png')
         load_dotenv(dotenv_path=self.env_path)
 
     # Internal Class Functions

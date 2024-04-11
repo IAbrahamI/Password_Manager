@@ -23,7 +23,7 @@ class Authenticator(customtkinter.CTk):
         # Initializes bools
         self.login_has_PopUp = False
         self.signin_has_PopUp = False
-        self.qrcode_path_Image = os.path.join(os.path.dirname(__file__), '_internal', 'otp_auth.png')
+        self.qrcode_path_Image = os.path.join(os.path.dirname(__file__), 'Secrets', 'otp_auth.png')
         # Initializes the GUI
         self.title(self.languageManager.get_text("app_title"))
         self.resizable(False,False)

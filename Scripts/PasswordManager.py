@@ -11,7 +11,7 @@ class PasswordManager:
         # Generates connection to database
         self.current_directory = os.path.dirname(__file__)
         db_name = f"PasswordManager_{user}.db"
-        self.db_path = os.path.join(self.current_directory, '..', '_internal', db_name)
+        self.db_path = os.path.join(self.current_directory, '..', 'Secrets', db_name)
         self.conn = sqlite3.connect(self.db_path)
         self.cursor = self.conn.cursor()
 
