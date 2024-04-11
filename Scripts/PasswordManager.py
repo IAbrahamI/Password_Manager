@@ -1,6 +1,7 @@
 from cryptography.fernet import Fernet
 from Scripts.KeyManager import KeyManager
 import sqlite3
+import os
 
 class PasswordManager:
     def __init__(self, user):
@@ -8,8 +9,10 @@ class PasswordManager:
         # Create a Fernet cipher instance with the key
         self.cipher_suite = Fernet(keyManager.get_DB_key_for_user(user))
         # Generates connection to database
+        self.current_directory = os.path.dirname(__file__)
         db_name = f"PasswordManager_{user}.db"
-        self.conn = sqlite3.connect(f'_internal/{db_name}')
+        self.db_path = os.path.join(self.current_directory, '..', '_internal', db_name)
+        self.conn = sqlite3.connect(self.db_path)
         self.cursor = self.conn.cursor()
 
     def encrypt_data(self, input):
