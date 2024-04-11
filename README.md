@@ -7,7 +7,7 @@ Welcome to my Password Manager project! This is a simple yet powerful password m
 
 -   **Secure Storage**: Safely store passwords and sensitive information using strong encryption techniques.
 -   **User-friendly Interface**: Intuitive and easy-to-use interface for managing passwords and accounts.
--   **Password Generator**: Create strong and unique passwords with our built-in password generator.
+-   **Password Generator**: Create strong and unique passwords with the built-in password generator.
 -   **Authentication**: Enhance security with support for authentication methods like TOTP.
 
 
@@ -15,13 +15,14 @@ Welcome to my Password Manager project! This is a simple yet powerful password m
 
 ## Terminal Usage
 
-To use My Awesome Password Manager from the terminal, follow these steps:
+To use the Password Manager from the terminal, follow these steps:
 
 1. Clone the repository to your local machine:
 
     ```bash
     git clone https://github.com/your-username/your-repository.git
     ```
+    Or you can also  download the zip file under the **<> Code** button on the repository and extract the file on your device
 
 2. Navigate to the project directory:
 
@@ -38,7 +39,7 @@ To use My Awesome Password Manager from the terminal, follow these steps:
 4. Run the password manager:
 
     ```bash
-    python app.py
+    python App.py
     ```
 	
 ## Creating Executable with auto-py-to-exe
@@ -50,40 +51,92 @@ If you prefer to create an executable file using `auto-py-to-exe`, follow these 
     ```bash
     git clone https://github.com/your-username/your-repository.git
     ```
+	  Or you can also  download the zip file under the **<> Code** button on the repository and extract the file on your device
 
-2. Navigate to the project directory:
-
-    ```bash
-    cd your-repository
-    ```
-
-3. Install `auto-py-to-exe` (see requirements file to check the tested version):
+2. Open a command terminal and navigate to the project directory:
 
     ```bash
-    pip install auto-py-to-exe
+    cd Password_Manager
     ```
 
-4. Launch `auto-py-to-exe`:
+3. Install the required dependencies using pip:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+5. Launch `auto-py-to-exe`:
 
     ```bash
     auto-py-to-exe
     ```
+    Or in case you get an error message try using the following command:
+     ```bash
+    python -m auto_py_to_exe
+    ```
+    You will then be able to see a graphical user interface.
 
-5. Follow the prompts in the graphical user interface to configure your executable. 
+6. Follow the prompts in the graphical user interface to configure your executable. 
 
 - Make sure to click on "**Select Script**" and navigate to the `App.py` file in your project directory. This is the entry point for your password manager application.
 
--   Under "**Additional Files**," make sure to click on the "**Add Folder**" and include the packages `Scripts` and `_internal`
+-   Under "**Additional Files**," make sure to click on the "**Add Folder**" and include the packages `Scripts` and `Secrets`.
 
--   Optionally, you can configure the "**Icon**". There is a .ico file in the repository which was created for it. If no icon is specified, the executable will be saved with the default python executable file icon.
+-   Optionally, you can configure the "**Icon**". There is a .ico file in the repository which was created for it in the folder `Images` . If no icon is specified, the executable will be saved with the default python executable file icon.
   
 -   Optionally, you can configure the "**Output Directory**" to specify where the generated executable file will be saved. If no output directory is specified, the executable will be saved in the default location.
     
 -   Once you've configured the settings to your preference, click on "Convert .py to .exe" to generate the executable file.
 
-6. Click on "Convert .py to .exe" to generate the executable file.
+-  Click on "Convert .py to .exe" to generate the executable file.
 
-7. Once the conversion is complete, you'll find the executable file in the specified output directory.
+-  Once the conversion is complete, you'll find the executable file in the specified output directory.
+
+-  Under the new output directory make sure to move the two **sv_ttk** folders under the `Images` folder inside the `_internal` order which was created with the executable.
+
+
+## How to Use the Password Manager
+
+### Step 1: Sign In
+
+1.  Download and install an authenticator app such as Google Authenticator on your smartphone.
+2.  Open the password manager application.
+3.  Click on the "Sign In" button.
+4.  Follow the on-screen instructions to enter your desired username and generate a QR code for authentication.
+5. Open the authenticator app on your smartphone and scan the QR code displayed on the screen.
+5.  Once the QR code is scanned, the authenticator app will generate a unique token then click on the "Done" button.
+
+### Step 2: Log In
+
+1.  Open the password manager application.
+2.  Click on the "Log In" button.
+3.  Enter your username.
+6.  Enter the token generated by the authenticator app into the password manager application.
+7.  Click on the "Log in" button to log in.
+
+### Step 3: Access Passwords
+
+1.  Upon successful authentication, you will be logged into the password manager dashboard.
+2.  From the dashboard, you can view, add, modify, or remove passwords as needed.
+3.  To add a new password, click on the "Add Password" button and fill in the required information.
+4.  To modify  existing entry , select the ID from the list and fill in the required information.
+
+5.  Generate Password
+- To generate a new password, click on the "Generate Password" button.
+- Enter the desired length of the password in the provided entry field.
+- Optionally, check the following checkboxes to include:
+    -   Uppercase letters
+    -   Digits (numbers)
+    -   Special characters
+- Click on the "Generate" button to create a new password. The password will be stored on the .
+#### Additional Options
+1.  **Language Selection**: Use the language select box to switch between different language options.
+2.  **View Mode**: Use the view mode select box to switch between different display modes.
+
+### Step 4: Log Out
+
+1.  To log out of the password manager application, simply click on the "X" button. This will log you off, close the Dashboard and send you back to the first window.
+
 
 ## License
 
