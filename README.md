@@ -20,7 +20,7 @@ To use the Password Manager from the terminal, follow these steps:
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/IAbrahamI/Password_Manager.git
     ```
     Or you can also  download the zip file under the **<> Code** button on the repository and extract the file on your device
 
