@@ -27,7 +27,7 @@ To use the Password Manager from the terminal, follow these steps:
 2. Navigate to the project directory:
 
     ```bash
-    cd your-repository
+    cd Password_Manager
     ```
 
 3. Install the required dependencies using pip:
@@ -49,7 +49,7 @@ If you prefer to create an executable file using `auto-py-to-exe`, follow these 
 1. . Clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/IAbrahamI/Password_Manager.git
     ```
 	  Or you can also  download the zip file under the **<> Code** button on the repository and extract the file on your device
 
