@@ -231,6 +231,8 @@ class App(customtkinter.CTkToplevel):
         self.add_has_Warning = False
         self.modify_has_Warning = False
         self.genpwd_has_PopUp = False
+        self.keyisVisible = False
+        self.copy_icon = os.path.join(os.path.dirname(__file__), 'Images', 'copy_icon.png')
         self.set_main_frame()
         self.protocol("WM_DELETE_WINDOW", master.on_second_window_close)
 
@@ -265,8 +267,8 @@ class App(customtkinter.CTkToplevel):
         self.navigation_gen_password_button.grid(row=5, column=0, sticky="sew")
 
         # Option Menu
-        self.navigation_appearance_mode_menu = customtkinter.CTkOptionMenu(self.navigation_frame, values=[self.languageManager.get_text("nav_sys_lan_eng"), self.languageManager.get_text("nav_sys_lan_spa"), self.languageManager.get_text("nav_sys_lan_ger")],command=self.change_language_event)
-        self.navigation_appearance_mode_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
+        self.navigation_langueage_menu = customtkinter.CTkOptionMenu(self.navigation_frame, values=[self.languageManager.get_text("nav_sys_lan_eng"), self.languageManager.get_text("nav_sys_lan_spa"), self.languageManager.get_text("nav_sys_lan_ger")],command=self.change_language_event)
+        self.navigation_langueage_menu.grid(row=6, column=0, padx=20, pady=20, sticky="s")
 
         # Option Menu
         self.navigation_appearance_mode_menu = customtkinter.CTkOptionMenu(self.navigation_frame, values=[self.languageManager.get_text("nav_sys_color_light"), self.languageManager.get_text("nav_sys_color_dark"), self.languageManager.get_text("nav_sys_color_system")],command=self.change_appearance_mode_event)
@@ -422,11 +424,20 @@ class App(customtkinter.CTkToplevel):
     #--------------------------------------------------------------------------------
     # Functions for PasswordManager       
             
-    # Get Password
-    def get_password_for_id(self):
+    # Get Password and copy
+    def copy_password_for_id(self):
         input_id = self.home_id_Entry.get()
         password = self.passwordManager.get_password_by_id(int(input_id))
         self.copy_password(password)
+    
+    def show_password_for_id(self):
+        input_id = self.home_id_Entry.get()
+        password = self.passwordManager.get_password_by_id(int(input_id))
+        if self.keyisVisible == True:
+            self.home_test_Label.destroy()
+        self.home_test_Label = customtkinter.CTkLabel(self.home_objects_frame, text=password, font=("Arial", 15))
+        self.home_test_Label.grid(row=2, column=0, padx=8, pady=5)
+        self.keyisVisible = True
 
     # Add entry
     def add_entry(self):
@@ -590,13 +601,15 @@ class App(customtkinter.CTkToplevel):
 
     def set_home_objects_frame(self, frame):
         self.home_objects_frame = customtkinter.CTkFrame(frame)
-        self.home_objects_frame.pack(anchor="w")
+        self.home_objects_frame.pack(anchor="e")
         self.home_id_Entry = customtkinter.CTkEntry(self.home_objects_frame, placeholder_text="ID", height=35)
-        self.home_id_Entry.grid(row=1, column=0, padx=20, pady=5)
-        self.home_get_key_button = customtkinter.CTkButton(self.home_objects_frame, text="Get Key", command=self.get_password_for_id)
-        self.home_get_key_button.grid(row=1, column=1, padx=20, pady=5)
-        self.home_test_Label = customtkinter.CTkLabel(self.home_objects_frame, text="", font=("Arial", 15))
-        self.home_test_Label.grid(row=1, column=2, padx=20, pady=5)
+        self.home_id_Entry.grid(row=1, column=0, padx=15, pady=5)
+        self.icon_image = Image.open(self.copy_icon)
+        self.icon_image_ctk = customtkinter.CTkImage(dark_image=self.icon_image, size=(20,20))
+        self.home_get_key_button = customtkinter.CTkButton(self.home_objects_frame, image=self.icon_image_ctk, text="", command=self.copy_password_for_id)
+        self.home_get_key_button.grid(row=2, column=1, pady=5)
+        self.home_show_pwd_button = customtkinter.CTkButton(self.home_objects_frame, text=self.languageManager.get_text("get_key"), command=self.show_password_for_id)
+        self.home_show_pwd_button.grid(row=1, column=1, padx=50, pady=5)
 
     def refresh_tree_data_list(self, frame):
         self.tree.destroy()
